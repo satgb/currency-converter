@@ -35,9 +35,9 @@ function getRates(reqData, res)
     .then(response => response.json())
     .then(data =>
         {
-            data["amount"] = parseFloat(reqData);
-            console.log(data);
-            sendResponse(data, res);
+            data["amount"] = parseFloat(reqData)
+            console.log(data)
+            sendResponse(data, res)
         })
     .catch(error => console.log(error)
     );
@@ -45,16 +45,16 @@ function getRates(reqData, res)
 
 app.post("*", function(req, res)
 {
-    let reqData;
+    let reqData
 
     req.on('data', function(chunk)
     {
-        reqData += chunk;
+        reqData += chunk
     })
 
     req.on('end', ()=>
     {
-        getRates(qstring.parse(reqData).undefinedamount, res);
+        getRates(qstring.parse(reqData).undefinedamount, res)
     })
 })
 
